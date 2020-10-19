@@ -6,7 +6,8 @@ class App extends Component{
   constructor(){
     super();
     this.state={
-      value:null
+      value:null,
+      result: 0
     }
 
   }
@@ -18,12 +19,12 @@ class App extends Component{
       </header>
       <div className="outerBox">
         <div className="outPut">
-
+{this.state.result}
         </div>
 
         <div className="input">
           <div className="numbers">
-            <div className="number" id="7">7</div>
+            <div className="number" id="seven">7</div>
             <div className="number" id="8">8</div>
             <div className="number" id="9">9</div>
             <div className="number" id="4">4</div>
@@ -35,6 +36,16 @@ class App extends Component{
             <div className="number" id="0">0</div>
             <div className="number" id="00">00</div>
             <div className="number" id="dot">.</div>
+          </div>
+
+          <div className="operations">
+          <div className="operation" id="div">÷</div>
+          <div className="operation" id="mud">%</div>
+          <div className="operation" id="mult">x</div>
+          <div className="operation" id="sub">-</div>
+          <div className="operation" id="add">+</div>
+          <div className="operation" id="equ">=</div>
+
 
           </div>
         </div>
