@@ -22,6 +22,20 @@ if(e.target.className ==="number"){
   })
 }
   }
+
+  handleOperand=(e)=>{
+    e.preventDefault()
+    if(e.target.className=== "operation"){
+let newValue1 = parseInt(this.state.value1.join(''))
+this.setState({
+  value: [...this.state.value, newValue1],
+  value1:[],
+  readout:0
+})
+console.log({newValue1});
+console.log(typeof newValue1);
+    }
+  }
   render(){
   return (
     <div className="App">
@@ -50,12 +64,12 @@ if(e.target.className ==="number"){
           </div>
 
           <div className="operations">
-          <div className="operation" id="div">÷</div>
-          <div className="operation" id="mud">%</div>
-          <div className="operation" id="mult">x</div>
-          <div className="operation" id="sub">-</div>
-          <div className="operation" id="add">+</div>
-          <div className="operation" id="equ">=</div>
+          <div className="operation" id="div" onClick={this.handleOperand}>÷</div>
+          <div className="operation" id="mud" onClick={this.handleOperand}>%</div>
+          <div className="operation" id="mult" onClick={this.handleOperand}>x</div>
+          <div className="operation" id="sub" onClick={this.handleOperand}>-</div>
+          <div className="operation" id="add" onClick={this.handleOperand}>+</div>
+          <div className="operation" id="equ" onClick={this.handleOperand}>=</div>
 
 
           </div>
