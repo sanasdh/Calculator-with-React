@@ -10,6 +10,7 @@ class App extends Component{
       value1:[],
       result: 0,
       readout:0,
+      operation: '',
     }
   }
   handleClick=(e)=>{
@@ -26,16 +27,74 @@ if(e.target.className ==="number"){
   handleOperand=(e)=>{
     e.preventDefault()
     if(e.target.className=== "operation"){
-let newValue1 = parseInt(this.state.value1.join(''))
-this.setState({
-  value: [...this.state.value, newValue1],
-  value1:[],
-  readout:0
-})
-console.log({newValue1});
-console.log(typeof newValue1);
+
+    let newValue1 = parseInt(this.state.value1.join(''))
+    this.setState({
+      value: [...this.state.value, newValue1],
+      value1:[],
+      readout:0,
+      operation: e.target.id
+    })
+    let length=this.state.value.length
+    console.log({length});
+    console.log(this.state.value);
+    if(this.state.value.length===1){
+      console.log("herreee");
+      this.setState({
+        result: this.state.value[0]
+      })
     }
-  }
+    if(this.state.operation!==null){
+      console.log(this.state.operation);
+      console.log("here");       
+    // operations
+    if (this.state.operation == "add") {
+      let v1 = this.state.result;
+      console.log({v1});
+      let v2 = this.state.value[length];
+      console.log({v2});
+      let result = v1 + v2;
+      this.setState({
+        readout: result,
+        result: result,
+      })
+    }
+
+    if (this.state.operation == "subtract") {
+      let v1 = this.state.result;
+      let v2 = this.state.value[length];
+      console.log({v2});
+      let result = v1 - v2;
+      this.setState({
+        readout: result,
+        result: result,
+      })
+    }
+
+    if (this.state.operation == "multiply") {
+      let v1 = this.state.result;
+      let v2 = this.state.value[length];
+      let result = v1 * v2;
+      this.setState({
+        readout: result,
+        result: result,
+      })
+    }
+
+    if (this.state.operation == "divide") {
+      let v1 = this.state.result;
+      let v2 = this.state.value[length];
+      let result = v1 / v2;
+      this.setState({
+        readout: result,
+        result: result,
+      })
+    }
+    }
+
+        }
+        
+      }
   render(){
   return (
     <div className="App">
@@ -64,10 +123,10 @@ console.log(typeof newValue1);
           </div>
 
           <div className="operations">
-          <div className="operation" id="div" onClick={this.handleOperand}>÷</div>
+          <div className="operation" id="divide" onClick={this.handleOperand}>÷</div>
           <div className="operation" id="mud" onClick={this.handleOperand}>%</div>
-          <div className="operation" id="mult" onClick={this.handleOperand}>x</div>
-          <div className="operation" id="sub" onClick={this.handleOperand}>-</div>
+          <div className="operation" id="multiply" onClick={this.handleOperand}>x</div>
+          <div className="operation" id="subtract" onClick={this.handleOperand}>-</div>
           <div className="operation" id="add" onClick={this.handleOperand}>+</div>
           <div className="operation" id="equ" onClick={this.handleOperand}>=</div>
 
