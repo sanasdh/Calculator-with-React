@@ -34,8 +34,10 @@ console.log(this.state.value.length);
     e.preventDefault()
     console.log("value");
     console.log(this.state.value);
+    let count=0
     if(e.target.className=== "operation"){
-      let newValue1 = parseInt(this.state.value1.join(''))
+      let newValue1 = parseFloat(this.state.value1.join(''));
+      console.log({newValue1});
       this.setState({
         value: [...this.state.value, newValue1],
         value1:[],
@@ -81,6 +83,17 @@ console.log(this.state.value.length);
         readout: result
       })
     }
+    handleClear=(e)=>{
+      e.preventDefault()
+      this.setState({
+        value:[],
+        value1:[],
+        result: 0,
+        readout:0,
+        first:false,
+        operation: [],
+      })
+    }
   render(){
   return (
     <div className="App">
@@ -105,7 +118,7 @@ console.log(this.state.value.length);
             <div className="number" id="3" onClick={this.handleClick}>3</div>
             <div className="number" id="0" onClick={this.handleClick}>0</div>
             <div className="number" id="00" onClick={this.handleClick}>00</div>
-            <div className="number" id="dot">.</div>
+            <div className="number" id="dot" onClick={this.handleClick}>.</div>
           </div>
 
           <div className="operations">
@@ -114,6 +127,7 @@ console.log(this.state.value.length);
           <div className="operation" id="multiply" onClick={this.handleOperand}>x</div>
           <div className="operation" id="subtract" onClick={this.handleOperand}>-</div>
           <div className="operation" id="add" onClick={this.handleOperand}>+</div>
+          <div className="operation" id="clear" onClick={this.handleClear}>Clear</div>
           <div className="operation" id="equ" onClick={this.handleSubmit}>=</div>
 
 
