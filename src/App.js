@@ -42,98 +42,6 @@ console.log(this.state.value.length);
         readout:0,
         operation: [...this.state.operation, e.target.id],
       })
-// first time
-
-
-//       let length=this.state.value.length
-//       console.log({length});
-//       console.log("value");
-//       console.log(this.state.value);
-//       if(this.state.value.length===1){
-//         console.log("herreee");
-//         this.setState({
-//           first:true,
-//           result: this.state.value[0]
-//         })
-//         console.log("resu", this.state.result);
-//       }
-
-//       if(this.state.operation==null){
-//         this.setState({
-//           operation: [...this.state.operation, e.target.id]
-//         })
-//       }
-
-//       else if(this.state.operation!==null){
-//         console.log(this.state.operation);
-//         console.log("here");       
-//       // operations
-//       let opLength=this.state.operation.length
-
-// if(this.state.value>=1){
-//       if (this.state.operation[opLength-1] == "add") {
-//         console.log(this.state.value[0]);
-//         console.log(this.state.value[1]);
-//         let result = this.state.value[0] + this.state.value[0];
-//         console.log({result});
-//         this.setState({
-//           readout: result,
-//           result: result,
-//         })
-//       }
-//     }
-// else{
-//       // let opLength=this.state.operation.length
-//       if (this.state.operation[opLength-1] == "add") {
-//         let v1 = this.state.result;
-//         console.log({v1});
-//         let v2 = this.state.value[length];
-//         console.log({v2});
-//         let result = v1 + v2;
-//         this.setState({
-//           readout: result,
-//           result: result,
-//         })
-//       }
-
-//       if (this.state.operation[opLength-1] == "subtract") {
-//         let v1 = this.state.result;
-//         let v2 = this.state.value[length];
-//         console.log({v2});
-//         let result = v1 - v2;
-//         this.setState({
-//           readout: result,
-//           result: result,
-//         })
-//       }
-
-//       if (this.state.operation[opLength-1] == "multiply") {
-//         let v1 = this.state.result;
-//         let v2 = this.state.value[length];
-//         let result = v1 * v2;
-//         this.setState({
-//           readout: result,
-//           result: result,
-//         })
-//       }
-
-//       if (this.state.operation[opLength-1] == "divide") {
-//         let v1 = this.state.result;
-//         let v2 = this.state.value[length];
-//         let result = v1 / v2;
-//         this.setState({
-//           readout: result,
-//           result: result,
-//         })
-//       }
-
-//       this.setState({
-//         operation: [...this.state.operation, e.target.id]
-//       })
-
-//       }
-
-//         }
       }
     }
 
@@ -159,24 +67,14 @@ console.log(this.state.value.length);
         if (this.state.operation[i] == "divide") {
           result=result/value[i+1]       
           }
+        if (this.state.operation[i] == "mud") {
+          result=result%value[i+1]       
+          }
           console.log({result});
       }
       console.log({result});
       let opLength=this.state.operation.length
       console.log({opLength});
-      // if (this.state.operation[opLength] == "add") {
-      //   result=result+newValue1       
-      //   }
-
-      // if (this.state.operation[opLength] == "subtract") {
-      //   result=result-newValue1       
-      //   }
-      // if (this.state.operation[opLength] == "multiply") {
-      //   result=result*newValue1       
-      //   }
-      // if (this.state.operation[opLength] == "divide") {
-      //   result=result/newValue1       
-      //   }
         console.log({result});
 
       this.setState({
