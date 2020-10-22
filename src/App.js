@@ -83,6 +83,17 @@ console.log(this.state.value.length);
         readout: result
       })
     }
+    handleClear=(e)=>{
+      e.preventDefault()
+      this.setState({
+        value:[],
+        value1:[],
+        result: 0,
+        readout:0,
+        first:false,
+        operation: [],
+      })
+    }
   render(){
   return (
     <div className="App">
@@ -116,6 +127,7 @@ console.log(this.state.value.length);
           <div className="operation" id="multiply" onClick={this.handleOperand}>x</div>
           <div className="operation" id="subtract" onClick={this.handleOperand}>-</div>
           <div className="operation" id="add" onClick={this.handleOperand}>+</div>
+          <div className="operation" id="clear" onClick={this.handleClear}>Clear</div>
           <div className="operation" id="equ" onClick={this.handleSubmit}>=</div>
 
 
